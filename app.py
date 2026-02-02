@@ -1,6 +1,6 @@
 import pickle
 
-# Load model and vectorizer
+# Load model
 with open("model/email_spam_model.pkl", "rb") as f:
     model = pickle.load(f)
 
@@ -12,7 +12,7 @@ def predict_spam(message):
     prediction = model.predict(message_vec)[0]
     return "Spam 🚫" if prediction == 1 else "Not Spam ✅"
 
-# Test
+# Test interactive prediction
 if __name__ == "__main__":
     msg = input("Enter a message: ")
     print("Prediction:", predict_spam(msg))
