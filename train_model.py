@@ -7,7 +7,14 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 
 # Load dataset
-data = pd.read_csv("spam.csv", encoding="latin-1")[["v1", "v2"]]
+DATA_PATH = "Data/emails.csv"
+data = pd.read_csv(DATA_PATH, encoding="latin-1")
+
+# Make sure columns exist
+if "v1" not in data.columns or "v2" not in data.columns:
+    raise ValueError("Dataset must contain 'v1' and 'v2' columns")
+
+data = data[["v1", "v2"]]
 data.columns = ["label", "message"]
 
 # Encode labels
