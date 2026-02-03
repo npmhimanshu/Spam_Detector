@@ -1,4 +1,4 @@
-📧 Spam Detector using Python
+📧 Spam Detector using Python language
 ---
 🎯 Objective
 ---
